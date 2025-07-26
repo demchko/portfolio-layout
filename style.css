@@ -1,3 +1,283 @@
 * {
-    background-color: red;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #1a1a2e;
+    --accent-1: #ff006e;
+    --accent-2: #8338ec;
+    --accent-3: #3a86ff;
+    --accent-4: #06ffa5;
+    --text-primary: #ffffff;
+    --text-secondary: #b8b8b8;
+    --glass: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    font-family: 'JetBrains Mono', 'SF Mono', monospace;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+}
+
+/* background with animated floating dots */
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: float 8s ease-in-out infinite;
+    opacity: 0.6;
+}
+
+.orb-1 {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, var(--accent-1), transparent 70%);
+    top: 10%;
+    left: 80%;
+    animation-delay: 0s;
+}
+
+.orb-2 {
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, var(--accent-2), transparent 70%);
+    top: 60%;
+    left: 10%;
+    animation-delay: 3s;
+}
+
+.orb-3 {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, var(--accent-3), transparent 70%);
+    top: 30%;
+    left: 30%;
+    animation-delay: 6s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(50px, -50px) rotate(90deg);
+    }
+
+    50% {
+        transform: translate(-30px, -100px) rotate(180deg);
+    }
+
+    75% {
+        transform: translate(-50px, 50px) rotate(270deg);
+    }
+}
+
+/* Header Section */
+.me {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    perspective: 1000px;
+}
+
+.me-content {
+    text-align: center;
+    z-index: 2;
+    max-width: 900px;
+    padding: 0 40px;
+}
+
+.name {
+    font-size: clamp(4rem, 12vw, 12rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    position: relative;
+    color: var(--text-primary);
+    letter-spacing: -0.05em;
+    animation: glitch 2s infinite;
+    margin-bottom: 30px;
+}
+
+.name::before,
+.name::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.name::before {
+    animation: glitch-1 2s infinite;
+    color: var(--accent-1);
+    z-index: -1;
+}
+
+.name::after {
+    animation: glitch-2 2s infinite;
+    color: var(--accent-2);
+    z-index: -2;
+}
+
+@keyframes name {
+
+    0%,
+    74%,
+    100% {
+        transform: translate(0);
+    }
+
+    75% {
+        transform: translate(-2px, 2px);
+    }
+
+    76% {
+        transform: translate(2px, -2px);
+    }
+
+    77% {
+        transform: translate(-2px, -2px);
+    }
+
+    78% {
+        transform: translate(2px, 2px);
+    }
+
+    79% {
+        transform: translate(-2px, 2px);
+    }
+
+    80% {
+        transform: translate(2px, -2px);
+    }
+}
+
+@keyframes name-1 {
+
+    0%,
+    74%,
+    100% {
+        transform: translate(0);
+    }
+
+    75% {
+        transform: translate(2px, -2px);
+    }
+
+    76% {
+        transform: translate(-2px, 2px);
+    }
+
+    77% {
+        transform: translate(2px, 2px);
+    }
+
+    78% {
+        transform: translate(-2px, -2px);
+    }
+
+    79% {
+        transform: translate(2px, -2px);
+    }
+
+    80% {
+        transform: translate(-2px, 2px);
+    }
+}
+
+@keyframes name-2 {
+
+    0%,
+    74%,
+    100% {
+        transform: translate(0);
+    }
+
+    75% {
+        transform: translate(-2px, -2px);
+    }
+
+    76% {
+        transform: translate(2px, 2px);
+    }
+
+    77% {
+        transform: translate(-2px, 2px);
+    }
+
+    78% {
+        transform: translate(2px, -2px);
+    }
+
+    79% {
+        transform: translate(-2px, -2px);
+    }
+
+    80% {
+        transform: translate(2px, 2px);
+    }
+}
+
+.my-subtitle {
+    font-size: 1.8rem;
+    background: linear-gradient(45deg, var(--accent-1), var(--accent-2), var(--accent-3), var(--accent-4));
+    background-size: 400% 400%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 3s ease-in-out infinite;
+    margin-bottom: 60px;
+    font-weight: 600;
+}
+
+
+@keyframes gradientShift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.nav-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    position: relative;
+    padding: 18px 40px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 50px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+
+.nav-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(255, 0, 110, 0.3);
+    border-color: var(--accent-1);
+    background: rgba(255, 0, 110, 0.1);
 }
