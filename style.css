@@ -281,3 +281,134 @@ body {
     border-color: var(--accent-1);
     background: rgba(255, 0, 110, 0.1);
 }
+
+/* About Section */
+.about {
+    min-height: 100vh;
+    padding: 120px 40px;
+}
+
+.about-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
+.section-title {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    border-radius: 2px;
+}
+
+.about-description {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 30px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: var(--accent-1);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--accent-1);
+    display: block;
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+/* Tech Stack Hexagon Grid */
+.tech-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.tech-hex {
+    width: 120px;
+    height: 104px;
+    position: relative;
+    margin: 25px 0;
+    cursor: pointer;
+}
+
+.tech-hex-inner {
+    width: 100%;
+    height: 100%;
+    background: var(--glass);
+    border: 2px solid var(--glass-border);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+}
+
+.tech-hex:hover .tech-hex-inner {
+    border-color: var(--accent-1);
+    box-shadow: 0 0 30px rgba(255, 0, 110, 0.4);
+    transform: scale(1.08);
+}
+
+
+.tech-icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    backface-visibility: hidden;
+}
+
+.tech-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    backface-visibility: hidden;
+}
